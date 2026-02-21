@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.8s ease;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+}
+
+/* Dynamic Backgrounds */
+body.clear {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+}
+
+body.rain {
+    background: linear-gradient(135deg, #232526, #414345);
+}
+
+body.snow {
+    background: linear-gradient(135deg, #83a4d4, #b6fbff);
+}
+
+body.clouds {
+    background: linear-gradient(135deg, #757f9a, #d7dde8);
+}
+
+/* Card */
+.container {
+    width: 380px;
+    padding: 30px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+.container h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.search-box input {
+    padding: 10px 15px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    width: 65%;
+}
+
+.search-box button {
+    padding: 10px 18px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background: #00eaff;
+    transition: 0.3s;
+}
+
+.search-box button:hover {
+    background: #00c3ff;
+}
+
+/* Weather Output */
+.weather-card {
+    background: rgba(255,255,255,0.2);
+    padding: 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    display: none;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.weather-card h2 {
+    font-size: 22px;
+}
+
+.temp {
+    font-size: 50px;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.desc {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* SUN */
+.sun {
+    position: absolute;
+    top: 80px;
+    right: 100px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, #ffd200, #f7971e);
+    border-radius: 50%;
+    box-shadow: 0 0 100px #ffd200;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 50px #ffd200; }
+    to { box-shadow: 0 0 120px #ffd200; }
+}
+
+/* SNOW */
+.snowflake {
+    position: absolute;
+    top: -10px;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    animation: snowfall linear infinite;
+}
+
+@keyframes snowfall {
+    to { transform: translateY(100vh); }
+}
+
+/* RAIN */
+.raindrop {
+    position: absolute;
+    top: -20px;
+    width: 2px;
+    height: 20px;
+    background: #9ecfff;
+    animation: rain linear infinite;
+}
+
+@keyframes rain {
+    to { transform: translateY(100vh); }
+}
